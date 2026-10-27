@@ -202,6 +202,13 @@
   .lightbox img { max-width: 100%; max-height: 100%; touch-action: none; transform-origin: center center; user-select: none; -webkit-user-drag: none; will-change: transform; }
   .lb-close { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 10px); right: 14px; z-index: 101; width: 46px; height: 46px; border-radius: 50%; border: none; background: rgba(255,255,255,.18); color: #fff; font-size: 2rem; line-height: 1; display: grid; place-items: center; cursor: pointer; }
 
+  /* ignite ohio grants */
+  .ignite-logo { width: 100%; max-width: 440px; height: auto; display: block; margin: 8px auto 20px; }
+  .ignite-actions { display: grid; gap: 12px; margin-top: 20px; }
+  .ignite-actions a { display: block; text-align: center; background: var(--brand); color: #fff; text-decoration: none; font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .02em; font-weight: 600; padding: 16px 18px; border-radius: 10px; font-size: 1.05rem; }
+  .ignite-actions a:active { transform: translateY(1px); }
+  .ignite-actions a:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
   footer { text-align: center; color: var(--muted); font-size: .84rem; padding-block: 24px; border-top: 1px solid var(--line); margin-top: 8px; }
   a { color: var(--brand); }
 </style>
@@ -676,10 +683,13 @@
   <section class="screen" id="ignite-grants">
     <a class="back" href="#home">← All areas</a>
     <div class="block">
-      <p class="kicker">Sparking innovation</p>
-      <h2 class="title display">Ignite Ohio Grants</h2>
-      <p><span class="soon">Coming</span></p>
-      <p class="note">Grant info and the application will appear here.</p>
+      <img class="ignite-logo" src="assets/ignite.jpg" alt="Ignite Ohio Grants — Sparking Innovation. Advancing Mission.">
+      <p>Ignite Ohio Grants support new, innovative ministry ideas that help all Ohio Episcopal Area United Methodist churches build meaningful relationships beyond the walls of the church and within their local communities — all for the purpose of making new disciples of Jesus Christ for the transformation of the world.</p>
+      <div class="ignite-actions">
+        <a href="https://forms.cloud.microsoft/r/ePCzEfAbQc" target="_blank" rel="noopener">Apply for an Ignite Ohio Grant</a>
+        <a href="https://canva.link/7xz1jggcv05pclm" target="_blank" rel="noopener">View Ignite Ohio Grant Handbook</a>
+        <a href="https://canva.link/pxqzaumnmd4gu7e" target="_blank" rel="noopener">View Dreaming New Possibilities Booklet</a>
+      </div>
     </div>
   </section>
 
