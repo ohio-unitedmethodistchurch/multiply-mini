@@ -1,0 +1,402 @@
+<title>Multiply Ohio 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap">
+<style>
+  /* Single white theme. One file, app-style "screens": #home shows by default; tapping a tile
+     targets a .screen which reveals it and hides home (pure CSS via :target + :has). */
+  :root {
+    --brand: #a4262c;
+    --brand-deep: #7c1a20;
+    --bg: #ffffff;
+    --surface-2: #faf6f4;
+    --fg: #1b1715;
+    --muted: #645c58;
+    --line: #e9e2dd;
+    --accent-soft: #f7e9ea;
+    --shadow: 0 1px 2px rgba(27,23,21,.06), 0 8px 24px rgba(27,23,21,.07);
+    --fs-display: clamp(2.5rem, 10vw, 3.7rem);
+    font-size: 24px; /* enlarged base — all rem sizes scale up for readability */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 1.1rem; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 900px; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .display { font-family: "Oswald", "Arial Narrow", system-ui, sans-serif; text-wrap: balance; }
+
+  /* persistent crimson bar */
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+    z-index: 30; background: var(--brand);
+  }
+  .topbar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 25;
+    background: var(--brand); box-shadow: var(--shadow);
+  }
+  .topbar .wrap { display: flex; align-items: center; min-height: 46px; }
+  .topbar a.home {
+    color: #fff; text-decoration: none; font-family: "Oswald", sans-serif;
+    font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: .95rem;
+  }
+
+  /* screen model */
+  .screen { display: none; }
+  .screen:target { display: block; }
+  body:has(.screen:target) #home { display: none; }
+  #home, .screen { scroll-margin-top: 60px; }
+
+  /* hero (home) */
+  header { background: var(--bg); padding-block: 28px 26px; text-align: center; }
+  .logo { width: min(460px, 88vw); height: auto; margin: 0 auto 10px; display: block; }
+  header .year { font-family: "Oswald", sans-serif; letter-spacing: .3em; font-weight: 500; font-size: .8rem; color: var(--brand); text-transform: uppercase; }
+  header h1 { font-size: var(--fs-display); line-height: .98; font-weight: 700; text-transform: uppercase; margin: 4px 0 0; }
+  header .where { margin-top: 14px; display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 4px 10px; font-size: 1.22rem; font-weight: 500; }
+  header .where b { color: var(--brand); }
+  header .when { margin-top: 8px; color: var(--muted); font-size: 1.08rem; }
+
+  /* app tile grid */
+  .tiles { display: grid; grid-template-columns: 1fr; gap: 12px; padding-block: 8px 24px; }
+  .tile {
+    display: flex; flex-direction: column; justify-content: flex-start; gap: 3px;
+    text-decoration: none; min-height: 0;
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px;
+    padding: 22px 24px; color: var(--fg); box-shadow: var(--shadow);
+  }
+  .tile .n {
+    font-family: "Oswald", sans-serif; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .03em; font-size: 1.5rem; line-height: 1.12; color: var(--brand);
+  }
+  .tile .d { font-size: 1.12rem; color: var(--muted); }
+  .tile:active { transform: translateY(1px); }
+  .tile:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+  /* content sections */
+  .block { padding-block: 22px; }
+  #home .welcome { border-top: 1px solid var(--line); }
+  .kicker { font-family: "Oswald", sans-serif; font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--brand); margin-bottom: 6px; }
+  h2.title { font-family: "Oswald", sans-serif; font-size: 2.05rem; text-transform: uppercase; font-weight: 700; margin: 0 0 14px; }
+  .block p { margin: 0 0 14px; }
+
+  .scripture { font-size: 1.5rem; line-height: 1.45; font-style: italic; border-left: 3px solid var(--brand); padding-left: 16px; margin: 0 0 18px; }
+  .scripture cite { display: block; font-style: normal; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--brand); margin-top: 8px; font-weight: 600; }
+
+  .prayer { background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); }
+  .prayer .lead { font-weight: 600; margin-bottom: 8px; }
+  .prayer .lines { font-style: italic; }
+  .prayer .lines span { display: block; margin: 2px 0; }
+  .prayer .amen { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .1em; color: var(--brand); font-weight: 600; margin-top: 8px; }
+
+  /* sub-screen chrome */
+  .back {
+    display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+    font-family: "Oswald", sans-serif; font-weight: 500; text-transform: uppercase;
+    letter-spacing: .06em; font-size: 1rem; color: var(--brand);
+    padding: 16px 0 10px;
+  }
+  .soon { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--brand); background: var(--accent-soft); padding: 3px 10px; border-radius: 20px; }
+  .note { color: var(--muted); }
+
+  .venue { background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
+  .venue h3 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.1rem; margin: 0 0 4px; }
+  .venue p { margin: 0 0 4px; }
+  .venue .addr { font-weight: 600; }
+
+  /* countdown on home */
+  .countdown { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .countdown .u { background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 8px; min-width: 66px; }
+  .countdown .u b { display: block; font-family: "Oswald", sans-serif; font-size: 1.75rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .countdown .u span { font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .countdown.done { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .08em; color: var(--brand); font-weight: 600; }
+
+  /* event-details content */
+  .info { background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); margin-bottom: 14px; }
+  .info h3 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.25rem; letter-spacing: .03em; color: var(--brand); margin: 0 0 10px; }
+  .info dl { margin: 0 0 10px; display: grid; gap: 7px; }
+  .info dl > div { display: grid; grid-template-columns: 96px 1fr; gap: 10px; }
+  .info dt { font-weight: 600; color: var(--muted); font-size: 1rem; }
+  .info dd { margin: 0; font-weight: 500; }
+  .info p { margin: 0 0 10px; }
+  .info p:last-child { margin-bottom: 0; }
+  .menu { margin: 0 0 10px; padding-left: 18px; }
+  .menu li { margin: 2px 0; }
+
+  /* schedule */
+  .sched { display: grid; gap: 14px; }
+  .sched .slot { background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
+  .sched .time { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .08em; font-size: .95rem; font-weight: 600; color: var(--brand); margin-bottom: 4px; }
+  .sched h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.3rem; font-weight: 700; margin: 0 0 8px; }
+  .sched ul { margin: 6px 0 0; padding-left: 20px; }
+  .sched li { margin: 4px 0; }
+  .sched p { margin: 0; color: var(--muted); }
+
+  footer { text-align: center; color: var(--muted); font-size: .84rem; padding-block: 24px; border-top: 1px solid var(--line); margin-top: 8px; }
+  a { color: var(--brand); }
+</style>
+
+<div class="topbar"><div class="wrap"><a class="home" href="#home">◆ Multiply Ohio</a></div></div>
+
+<main class="wrap">
+
+  <!-- ============ HOME ============ -->
+  <section id="home">
+    <header>
+      <img class="logo" src="assets/logo.png" alt="Multiply Ohio">
+      <p class="year">2026</p>
+      <h1 class="display">Multiply Ohio</h1>
+      <div class="where"><span>THE Ohio State University</span><span>·</span><span><b>Career Center of Excellence</b></span></div>
+      <p class="when">Thursday, October 29, 2026 · 10:00 AM – 3:00 PM</p>
+      <div class="countdown" id="cd" aria-live="polite"></div>
+    </header>
+
+    <nav class="tiles" aria-label="Event areas">
+      <a class="tile" href="#details"><span class="n">Event Details</span><span class="d">Venue &amp; logistics</span></a>
+      <a class="tile" href="#schedule"><span class="n">Schedule</span><span class="d">Plan your day</span></a>
+      <a class="tile" href="#speakers"><span class="n">Speakers</span><span class="d">Who you'll hear</span></a>
+      <a class="tile" href="#partners"><span class="n">Partners</span><span class="d">Who's with us</span></a>
+      <a class="tile" href="#letter"><span class="n">Letter from Bishop Jung</span><span class="d">A word of welcome</span></a>
+      <a class="tile" href="#road-to-100"><span class="n">Road to 100</span><span class="d">The vision</span></a>
+      <a class="tile" href="#dst-map"><span class="n">DST Map</span><span class="d">Find your district</span></a>
+      <a class="tile" href="#ignite-grants"><span class="n">Ignite Ohio Grants</span><span class="d">Info &amp; application</span></a>
+      <a class="tile" href="#greenhouse"><span class="n">Greenhouse</span><span class="d">Leader development</span></a>
+    </nav>
+
+    <div class="block welcome">
+      <p class="kicker">Welcome</p>
+      <blockquote class="scripture">
+        "See, I am doing a new thing! Now it springs up; do you not perceive it?"
+        <cite>Isaiah 43:19</cite>
+      </blockquote>
+      <p>Multiply Ohio is a gathering for a community of leaders committed to expanding the reach of the gospel through partnership, innovation, and multiplication. Together, we'll be challenged by fresh vision, inspired by stories of impact, and invited to consider how our churches can help create new pathways for people to encounter Jesus.</p>
+      <p>The future of multiplication in Ohio will be shaped not only by what we do, but by how we seek God together. This prayer reminds us that multiplication begins with God's abundance, grows through our shared commitment, and takes root in the daily lives of faithful disciples. As we join together across churches, communities, cultures, and generations, let us pray:</p>
+      <div class="prayer">
+        <p class="lead">God of abundance,</p>
+        <div class="lines">
+          <span>You have entrusted us with people, spaces, resources, and influence.</span>
+          <span>Multiply our faith, our courage, and our capacity to love like Jesus.</span>
+          <span>Multiply new relationships and new beginnings.</span>
+          <span>Multiply leaders from every language and culture across Ohio.</span>
+          <span>Multiply faith communities where hope is shared and Jesus is known.</span>
+          <span>Make us bold and united so younger, more diverse disciples are formed.</span>
+          <span>By your Spirit, multiply a strong foundation for the future of the United Methodist Church.</span>
+          <span>Let it begin with me.</span>
+        </div>
+        <p class="amen">Amen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SUB-SCREENS ============ -->
+  <section class="screen" id="details">
+    <a class="back" href="#home">← All areas</a>
+    <div class="block">
+      <p class="kicker">Getting there</p>
+      <h2 class="title display">Event Details</h2>
+
+      <div class="info">
+        <h3>When</h3>
+        <dl>
+          <div><dt>Date</dt><dd>Thursday, October 29, 2026</dd></div>
+          <div><dt>Time</dt><dd>10:00 AM – 3:00 PM</dd></div>
+        </dl>
+        <p>Please arrive by <b>9:15 AM</b> to allow time for parking and getting to the Recruit Room.</p>
+        <p>Dress comfortably and wear good walking shoes. The tour of the stadium will take place near the end of the day.</p>
+      </div>
+
+      <div class="info">
+        <h3>Where</h3>
+        <dl>
+          <div><dt>Location</dt><dd>OSU — Career Center of Excellence</dd></div>
+          <div><dt>Entrance</dt><dd>Gate 30 at the Southeast Tower</dd></div>
+        </dl>
+        <p><b>Parking:</b> Stadium surface lots are available at the hourly rate through the <a href="https://osu.campusparc.com/resources/pay-with-parkmobile/" target="_blank" rel="noopener">ParkMobile app</a>. Spaces may be limited due to university staff and students on campus. You can also park in the nearby <b>Tuttle Garage</b>. Both shouldn't cost more than <b>$20</b>.</p>
+      </div>
+
+      <div class="info">
+        <h3>Lunch</h3>
+        <p><b>Mediterranean Bowls Station</b> — served with pita chips, hummus &amp; whipped feta.</p>
+        <ul class="menu">
+          <li><b>Proteins:</b> harissa chicken, steak, falafel</li>
+          <li>Greens &amp; rice</li>
+          <li>Vegetables</li>
+          <li>Cheese</li>
+          <li>Dressings</li>
+        </ul>
+        <p class="note">We've worked to accommodate a variety of dietary needs. If you prefer, you're welcome to bring your own lunch.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="schedule">
+    <a class="back" href="#home">← All areas</a>
+    <div class="block">
+      <p class="kicker">Agenda</p>
+      <h2 class="title display">Schedule</h2>
+      <p>We're excited to gather for Multiply Ohio 2026! This day is designed to be informative, inspirational, and intentionally relational as we explore new possibilities for multiplication across Ohio.</p>
+      <div class="sched">
+        <div class="slot">
+          <div class="time">9:15 – 10:00 AM</div>
+          <h4>Check-In</h4>
+          <p>Coffee, networking, and registration.</p>
+        </div>
+        <div class="slot">
+          <div class="time">10:00 AM</div>
+          <h4>Morning Gathering</h4>
+          <ul>
+            <li>Centering &amp; Worship</li>
+            <li>Multiply Moments</li>
+            <li>Intentional Connection</li>
+            <li>Conversation with Bishop Jung</li>
+          </ul>
+        </div>
+        <div class="slot">
+          <div class="time">Around Noon</div>
+          <h4>Lunch</h4>
+          <p>Lunch and informal networking.</p>
+        </div>
+        <div class="slot">
+          <div class="time">Afternoon</div>
+          <h4>Afternoon Gathering</h4>
+          <ul>
+            <li>Road to 100 update</li>
+            <li>Multiply Moments</li>
+            <li>Intentional Connection</li>
+            <li>Keynote: Rodrigo Cruz</li>
+          </ul>
+        </div>
+        <div class="slot">
+          <div class="time">Following the Closing Session</div>
+          <h4>Tour of "The Shoe"</h4>
+          <p>Explore the iconic venue and continue conversations with fellow participants.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="speakers">
+    <a class="back" href="#home">← All areas</a>
+    <div class="block">
+      <p class="kicker">Who's talking</p>
+      <h2 class="title display">Speakers</h2>
+      <p><span class="soon">Coming</span></p>
+      <p class="note">Speaker names, roles, and sessions will appear here.</p>
+    </div>
+  </section>
+
+  <section class="screen" id="partners">
+    <a class="back" href="#home">← All areas</a>
+    <div class="block">
+      <p class="kicker">Alongside us</p>
+      <h2 class="title display">Partners</h2>
+      <p><span class="soon">Coming</span></p>
+      <p class="note">Multiply Ohio partners and sponsors will be listed here.</p>
+    </div>
+  </section>
+
+  <section class="screen" id="letter">
+    <a class="back" href="#home">← All areas</a>
+    <div class="block">
+      <p class="kicker">A word of welcome</p>
+      <h2 class="title display">Letter from Bishop Jung</h2>
+      <p><span class="soon">Coming</span></p>
+      <p class="note">Bishop Jung's letter will appear here.</p>
+    </div>
+  </section>
+
+  <section class="screen" id="road-to-100">
+    <a class="back" href="#home">← All areas</a>
+    <div class="block">
+      <p class="kicker">The vision</p>
+      <h2 class="title display">Road to 100</h2>
+      <p><span class="soon">Coming</span></p>
+      <p class="note">Details about Road to 100 will appear here.</p>
+    </div>
+  </section>
+
+  <section class="screen" id="dst-map">
+    <a class="back" href="#home">← All areas</a>
+    <div class="block">
+      <p class="kicker">Find your district</p>
+      <h2 class="title display">DST Map</h2>
+      <p><span class="soon">Coming</span></p>
+      <p class="note">The district map will appear here.</p>
+    </div>
+  </section>
+
+  <section class="screen" id="ignite-grants">
+    <a class="back" href="#home">← All areas</a>
+    <div class="block">
+      <p class="kicker">Sparking innovation</p>
+      <h2 class="title display">Ignite Ohio Grants</h2>
+      <p><span class="soon">Coming</span></p>
+      <p class="note">Grant info and the application will appear here.</p>
+    </div>
+  </section>
+
+  <section class="screen" id="greenhouse">
+    <a class="back" href="#home">← All areas</a>
+    <div class="block">
+      <p class="kicker">Leader development</p>
+      <h2 class="title display">Greenhouse Leader Development</h2>
+      <p><span class="soon">Coming</span></p>
+      <p class="note">Greenhouse / Semillero de Líderes details will appear here.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">2026 Multiply Ohio · West Ohio Conference of The United Methodist Church</div>
+</footer>
+
+<script>
+  // Screen switching, JS-driven so it works on every browser and host (CSS :target is a fallback).
+  (function () {
+    function show() {
+      var id = (location.hash || "").replace(/^#/, "");
+      var target = id && document.getElementById(id);
+      var isScreen = target && target.classList.contains("screen");
+      var home = document.getElementById("home");
+      var screens = document.querySelectorAll(".screen");
+      for (var i = 0; i < screens.length; i++) {
+        screens[i].style.display = (isScreen && screens[i].id === id) ? "block" : "none";
+      }
+      home.style.display = isScreen ? "none" : "";
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener("hashchange", show);
+    show();
+  })();
+
+  // Live countdown to the 10:00 AM start (Eastern). Switches to a message during/after.
+  (function () {
+    var el = document.getElementById("cd");
+    if (!el) return;
+    var start = new Date("2026-10-29T10:00:00-04:00").getTime();
+    var end = new Date("2026-10-29T15:00:00-04:00").getTime();
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function tick() {
+      var now = Date.now();
+      if (now >= end) { el.className = "countdown done"; el.textContent = "Thank you for joining us!"; clearInterval(t); return; }
+      if (now >= start) { el.className = "countdown done"; el.textContent = "Happening now — welcome!"; return; }
+      var d = start - now;
+      el.className = "countdown";
+      el.innerHTML =
+        '<div class="u"><b>' + pad(Math.floor(d / 86400000)) + "</b><span>Days</span></div>" +
+        '<div class="u"><b>' + pad(Math.floor(d / 3600000) % 24) + "</b><span>Hours</span></div>" +
+        '<div class="u"><b>' + pad(Math.floor(d / 60000) % 60) + "</b><span>Min</span></div>" +
+        '<div class="u"><b>' + pad(Math.floor(d / 1000) % 60) + "</b><span>Sec</span></div>";
+    }
+    tick();
+    var t = setInterval(tick, 1000);
+  })();
+</script>
