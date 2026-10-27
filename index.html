@@ -168,8 +168,8 @@
   .letter .sign .title { color: var(--muted); margin: 0; }
 
   /* road to 100 */
-  .r100-banner { background: #2a2d33 center / cover no-repeat; border-radius: 14px; display: grid; place-items: center; margin-bottom: 18px; overflow: hidden; }
-  .r100-banner.has-img { background-image: url("assets/road.jpg"); }
+  .r100-banner { background: #2a2d33 center / cover no-repeat; border-radius: 14px; min-height: 180px; display: grid; place-items: center; margin-bottom: 18px; overflow: hidden; }
+  .r100-banner.has-img { background: linear-gradient(rgba(0,0,0,.32), rgba(0,0,0,.42)), url("assets/road.jpg") center / cover no-repeat; }
   .r100-banner h3 { color: #fff; font-family: "Oswald", sans-serif; font-weight: 700; font-size: clamp(2.4rem, 11vw, 3.4rem); text-transform: uppercase; letter-spacing: .02em; margin: 0; padding: 48px 16px; text-shadow: 0 2px 12px rgba(0,0,0,.7); }
   .r100 .year { font-family: "Oswald", sans-serif; font-size: 2rem; font-weight: 700; color: var(--brand); text-transform: uppercase; margin: 26px 0 14px; border-bottom: 2px solid var(--line); padding-bottom: 6px; }
   .r100 .year.proj { color: var(--muted); }
@@ -462,7 +462,7 @@
       <p>The journey toward 100 new faith communities across Ohio — launched and planned, by year and district. 31 and counting.</p>
 
       <div class="r100">
-        <div class="r100-banner"><h3>Road to 100</h3></div>
+        <div class="r100-banner has-img"><h3>Road to 100</h3></div>
 
         <p class="year">2025</p>
         <div class="grid">
