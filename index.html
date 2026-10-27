@@ -143,11 +143,11 @@
   .speakers { display: grid; gap: 16px; }
   .speaker { background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); }
   .speaker.keynote { border-color: var(--brand); border-width: 2px; }
-  .speaker .head { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
-  .speaker .photo { width: 150px; height: 150px; object-fit: cover; object-position: center 25%; border-radius: 14px; display: block; flex-shrink: 0; border: 1px solid var(--line); }
-  .speaker.keynote .photo { width: 172px; height: 172px; }
+  .speaker .head { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+  .speaker .photo { width: 180px; height: 180px; object-fit: cover; object-position: center 25%; border-radius: 14px; display: block; border: 1px solid var(--line); }
+  .speaker.keynote .photo { width: 200px; height: 200px; }
   .speaker .meta { min-width: 0; }
-  .speaker .role { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; font-weight: 600; color: var(--brand); margin: 0 0 3px; }
+  .speaker .role { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; font-weight: 600; color: var(--brand); margin: 0 0 12px; }
   .speaker h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.4rem; font-weight: 700; margin: 0 0 4px; line-height: 1.06; }
   .speaker .title { font-weight: 600; margin: 0 0 1px; }
   .speaker .conf { color: var(--brand); font-weight: 500; margin: 0; }
@@ -329,10 +329,10 @@
 
       <div class="speakers">
         <div class="speaker keynote">
+          <p class="role">Keynote Speaker</p>
           <div class="head">
             <img class="photo" src="assets/rodrigo.jpg" alt="Rev. Dr. Rodrigo Cruz">
             <div class="meta">
-              <p class="role">Keynote Speaker</p>
               <h4>Rev. Dr. Rodrigo Cruz</h4>
               <p class="title">Executive Assistant to the Bishop</p>
               <p class="conf">North Georgia Annual Conference</p>
