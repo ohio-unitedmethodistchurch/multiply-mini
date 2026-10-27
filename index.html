@@ -145,9 +145,9 @@
   .speaker.keynote { border-color: var(--brand); border-width: 2px; }
   .speaker .role { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .1em; font-size: .9rem; font-weight: 600; color: var(--brand); margin: 0 0 10px; }
   .speaker .photo { width: 100%; height: auto; border-radius: 12px; display: block; border: 1px solid var(--line); margin: 0 0 12px; }
-  .speaker .nameline { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 16px; margin-bottom: 14px; }
-  .speaker h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.5rem; font-weight: 700; margin: 0; line-height: 1.05; }
-  .speaker .org { color: var(--brand); font-weight: 500; margin: 0; text-align: right; }
+  .speaker .nameline { margin-bottom: 14px; }
+  .speaker .nameline h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-weight: 700; margin: 0 0 3px; line-height: 1; white-space: nowrap; display: block; }
+  .speaker .nameline .org { color: var(--brand); font-weight: 600; margin: 0; line-height: 1; white-space: nowrap; display: block; }
   .speaker p.bio { margin: 0 0 10px; }
   .speaker p.bio:last-child { margin-bottom: 0; }
 
@@ -606,6 +606,20 @@
 <script>
   // Screen switching, JS-driven so it works on every browser and host (CSS :target is a fallback).
   (function () {
+    // Scale a line of text so it fills its container width on one line.
+    function fitText(el) {
+      el.style.whiteSpace = "nowrap";
+      var avail = el.clientWidth;
+      if (!avail) return;
+      el.style.fontSize = "40px";
+      var w = el.scrollWidth;
+      if (!w) return;
+      el.style.fontSize = Math.min(40 * avail / w, 58) + "px";
+    }
+    function fitSpeakers() {
+      var els = document.querySelectorAll("#speakers .nameline h4, #speakers .nameline .org");
+      for (var i = 0; i < els.length; i++) fitText(els[i]);
+    }
     function show() {
       var id = (location.hash || "").replace(/^#/, "");
       var target = id && document.getElementById(id);
@@ -616,9 +630,18 @@
         screens[i].style.display = (isScreen && screens[i].id === id) ? "block" : "none";
       }
       home.style.display = isScreen ? "none" : "";
+      if (isScreen && id === "speakers") fitSpeakers();
       window.scrollTo(0, 0);
     }
     window.addEventListener("hashchange", show);
+    var rt;
+    window.addEventListener("resize", function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { if (location.hash === "#speakers") fitSpeakers(); }, 150);
+    });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { if (location.hash === "#speakers") fitSpeakers(); });
+    }
     show();
   })();
 
