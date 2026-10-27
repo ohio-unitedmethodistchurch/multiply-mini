@@ -67,7 +67,7 @@
   /* app tile grid */
   .tiles { display: grid; grid-template-columns: 1fr; gap: 12px; padding-block: 8px 24px; }
   .tile {
-    display: flex; flex-direction: column; justify-content: flex-start; gap: 3px;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 3px; text-align: center;
     text-decoration: none; min-height: 0;
     background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px;
     padding: 22px 24px; color: var(--fg); box-shadow: var(--shadow);
@@ -143,11 +143,13 @@
   .speakers { display: grid; gap: 16px; }
   .speaker { background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); }
   .speaker.keynote { border-color: var(--brand); border-width: 2px; }
-  .speaker .photo { width: 130px; height: 130px; border-radius: 14px; object-fit: cover; display: block; margin-bottom: 12px; border: 1px solid var(--line); }
-  .speaker.keynote .photo { width: 156px; height: 156px; }
+  .speaker .head { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
+  .speaker .photo { width: 160px; height: 160px; border-radius: 14px; object-fit: cover; display: block; flex-shrink: 0; border: 1px solid var(--line); }
+  .speaker.keynote .photo { width: 184px; height: 184px; }
+  .speaker .meta { min-width: 0; }
   .speaker .role { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; font-weight: 600; color: var(--brand); margin: 0 0 2px; }
-  .speaker h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.4rem; font-weight: 700; margin: 0 0 3px; }
-  .speaker .org { color: var(--brand); font-weight: 500; margin: 0 0 12px; }
+  .speaker h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.4rem; font-weight: 700; margin: 0 0 4px; line-height: 1.08; }
+  .speaker .org { color: var(--brand); font-weight: 500; margin: 0; }
   .speaker p.bio { margin: 0 0 10px; }
   .speaker p.bio:last-child { margin-bottom: 0; }
 
@@ -303,42 +305,62 @@
 
       <div class="speakers">
         <div class="speaker keynote">
-          <img class="photo" src="assets/rodrigo.jpg" alt="Rev. Dr. Rodrigo Cruz">
-          <p class="role">Keynote Speaker</p>
-          <h4>Rev. Dr. Rodrigo Cruz</h4>
-          <p class="org">Executive Assistant to the Bishop · North Georgia Annual Conference</p>
+          <div class="head">
+            <img class="photo" src="assets/rodrigo.jpg" alt="Rev. Dr. Rodrigo Cruz">
+            <div class="meta">
+              <p class="role">Keynote Speaker</p>
+              <h4>Rev. Dr. Rodrigo Cruz</h4>
+              <p class="org">Executive Assistant to the Bishop · North Georgia Annual Conference</p>
+            </div>
+          </div>
           <p class="bio">Rodrigo was born and raised in Monterrey, Mexico, where he practiced criminal law for several years. He earned his M.Div. from Asbury Seminary and his D.Min. from Wesley Seminary. In 2016, he planted a multi-ethnic church — now a multi-site church with 5 campuses — called The Nett Church in Gwinnett County, Georgia.</p>
           <p class="bio">In 2019, he was voted by the Chamber of Commerce as one of the 50 most influential Latinos in the State of Georgia. In 2022, The Nett was voted one of the 100 most reproducible churches in the country by Outreach Magazine. Rodrigo's most important ministry is his wife Kelly and their 5 children.</p>
         </div>
 
         <div class="speaker">
-          <img class="photo" src="assets/lindsey.jpg" alt="Rev. Lindsey Funtik">
-          <h4>Rev. Lindsey Funtik</h4>
-          <p class="org">Associate Pastor · Strongsville UMC</p>
+          <div class="head">
+            <img class="photo" src="assets/lindsey.jpg" alt="Rev. Lindsey Funtik">
+            <div class="meta">
+              <h4>Rev. Lindsey Funtik</h4>
+              <p class="org">Associate Pastor · Strongsville UMC</p>
+            </div>
+          </div>
           <p class="bio">Reverend Lindsey Funtik is an ordained elder in the United Methodist Church, serving as associate pastor of Strongsville UMC in Strongsville, Ohio. She joyfully bears the title of shepherdess, but prides herself even more on being wife to John and mother to Arthur and Lucy.</p>
           <p class="bio">Her greatest passions lie in helping all people seize their identity as the beloved of God and live into freedom and fullness without apology. In her spare time you'll find Lindsey nerding out over novels, writing prayerful poetry, and testing the limits of how much coffee and Diet Coke one human can consume.</p>
         </div>
 
         <div class="speaker">
-          <img class="photo" src="assets/dustin.jpg" alt="Dustin Sable">
-          <h4>Dustin Sable</h4>
-          <p class="org">Director of Youth &amp; Young Adults · Scioto Ridge UMC</p>
+          <div class="head">
+            <img class="photo" src="assets/dustin.jpg" alt="Dustin Sable">
+            <div class="meta">
+              <h4>Dustin Sable</h4>
+              <p class="org">Director of Youth &amp; Young Adults · Scioto Ridge UMC</p>
+            </div>
+          </div>
           <p class="bio">Dustin Sable is the Director of Youth and Young Adults at Scioto Ridge United Methodist Church and the Associate College Pastor for Short North Church at OSU. As a former evangelical pastor, he's passionate about ministering to the spiritually hurt and hungry and empowering the church to better reach youth, young adults, and ex-vangelicals.</p>
           <p class="bio">In collaboration with the Fresh Starts team, Dustin and Scioto Ridge are preparing to launch Refuge, a new worshiping community coming to northwest Hilliard and Dublin next fall.</p>
         </div>
 
         <div class="speaker">
-          <img class="photo" src="assets/paula.jpg" alt="Rev. Paula W. Stewart">
-          <h4>Rev. Paula W. Stewart</h4>
-          <p class="org">Pastor, Gaines UMC · West Ohio Conference</p>
+          <div class="head">
+            <img class="photo" src="assets/paula.jpg" alt="Rev. Paula W. Stewart">
+            <div class="meta">
+              <h4>Rev. Paula W. Stewart</h4>
+              <p class="org">Pastor, Gaines UMC · West Ohio Conference</p>
+            </div>
+          </div>
           <p class="bio">Paula W. Stewart is an Elder in the West Ohio Conference of the United Methodist Church and has served in a clergy role since 2002. She began her ministry in Toledo before moving to Cincinnati in 2017, serving Clough UMC and then as lead pastor of Clough and Cherry Grove UMC in Anderson Township for eight years. She is presently appointed to Gaines UMC in the Madisonville neighborhood of Cincinnati.</p>
           <p class="bio">She has served as Chairperson of the West Ohio Council on Finance and Administration and currently serves as Vice-chair of the Episcopacy Committee and a member of the West Ohio Conference Board of Ministry. Her passions are spiritual formation and transformation, and social justice issues addressing racism, homelessness, trauma-informed ministry, and eradicating the school-to-prison pipeline in communities of color.</p>
         </div>
 
         <div class="speaker">
-          <img class="photo" src="assets/matt.jpg" alt="Rev. Matthew Anderson">
-          <h4>Rev. Matthew Anderson</h4>
-          <p class="org">Pastor · Bucyrus UMC</p>
+          <div class="head">
+            <img class="photo" src="assets/matt.jpg" alt="Rev. Matthew Anderson">
+            <div class="meta">
+              <h4>Rev. Matthew Anderson</h4>
+              <p class="org">Pastor · Bucyrus UMC</p>
+            </div>
+          </div>
           <p class="bio">Reverend Matthew Anderson is pastor of Bucyrus United Methodist Church. Matt is married to Pamela, and they have three sons — Justus, Silas, and Thaddaeus — and one daughter, Olyvia. He grew up in Huntsville, Alabama and Athens, Pennsylvania.</p>
           <p class="bio">Matt earned a Bachelor's in History from Eastern University and his M.Div. from Asbury Theological Seminary. He's an avid sports fan and, having grown up in Alabama, a devoted Crimson Tide fan (Roll Tide!). He enjoys spending time with his family and playing pickleball.</p>
         </div>
