@@ -168,14 +168,19 @@
   .letter .sign .title { color: var(--muted); margin: 0; }
 
   /* road to 100 */
-  .r100 .year { font-family: "Oswald", sans-serif; font-size: 1.9rem; font-weight: 700; color: var(--brand); text-transform: uppercase; margin: 22px 0 12px; border-bottom: 2px solid var(--line); padding-bottom: 6px; }
+  .r100-banner { background: #2a2d33 center / cover no-repeat; border-radius: 14px; display: grid; place-items: center; margin-bottom: 18px; overflow: hidden; }
+  .r100-banner.has-img { background-image: url("assets/road.jpg"); }
+  .r100-banner h3 { color: #fff; font-family: "Oswald", sans-serif; font-weight: 700; font-size: clamp(2.4rem, 11vw, 3.4rem); text-transform: uppercase; letter-spacing: .02em; margin: 0; padding: 48px 16px; text-shadow: 0 2px 12px rgba(0,0,0,.7); }
+  .r100 .year { font-family: "Oswald", sans-serif; font-size: 2rem; font-weight: 700; color: var(--brand); text-transform: uppercase; margin: 26px 0 14px; border-bottom: 2px solid var(--line); padding-bottom: 6px; }
   .r100 .year.proj { color: var(--muted); }
-  .r100 .dist { margin: 0 0 18px; }
-  .r100 .dname { font-family: "Oswald", sans-serif; text-transform: uppercase; font-weight: 600; font-size: 1.05rem; letter-spacing: .02em; margin: 0 0 8px; }
-  .r100 ul.plants { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-  .r100 ul.plants li { display: flex; gap: 11px; align-items: center; }
-  .r100 .num { display: inline-grid; place-items: center; min-width: 32px; height: 32px; border-radius: 8px; background: var(--brand); color: #fff; font-family: "Oswald", sans-serif; font-weight: 600; font-size: .95rem; flex-shrink: 0; }
-  .r100 .pname { min-width: 0; }
+  .r100 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px 24px; }
+  .r100 .dist { break-inside: avoid; }
+  .r100 .dhead { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .r100 .dbadge { width: 44px; height: 50px; background: #3b4a57; color: #fff; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); display: inline-grid; place-items: center; font-family: "Oswald", sans-serif; font-weight: 700; font-size: 1.5rem; flex-shrink: 0; }
+  .r100 .dname { font-family: "Oswald", sans-serif; text-transform: uppercase; font-weight: 600; font-size: 1.02rem; letter-spacing: .01em; margin: 0; line-height: 1.15; }
+  .r100 ul.plants { list-style: none; margin: 0 0 0 56px; padding: 0; }
+  .r100 ul.plants li { margin: 5px 0; }
+  .r100 ul.plants .pn { color: var(--brand); font-weight: 600; }
 
   footer { text-align: center; color: var(--muted); font-size: .84rem; padding-block: 24px; border-top: 1px solid var(--line); margin-top: 8px; }
   a { color: var(--brand); }
@@ -457,129 +462,134 @@
       <p>The journey toward 100 new faith communities across Ohio — launched and planned, by year and district. 31 and counting.</p>
 
       <div class="r100">
-        <p class="year">2025</p>
+        <div class="r100-banner"><h3>Road to 100</h3></div>
 
-        <div class="dist">
-          <p class="dname">West Ohio · Great Miami River District</p>
-          <ul class="plants">
-            <li><span class="num">1</span><span class="pname">Bethlehem Bhutanese UMC · Cincinnati</span></li>
-            <li><span class="num">2</span><span class="pname">New Covenant UMC · Cincinnati</span></li>
-            <li><span class="num">3</span><span class="pname">Resurrection Mason UMC · Cincinnati</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">West Ohio · Olentangy River District</p>
-          <ul class="plants">
-            <li><span class="num">4</span><span class="pname">Iglesia Hispana St Marks UMC · Columbus</span></li>
-            <li><span class="num">5</span><span class="pname">Messy Church @ Beacon of Hope · Columbus</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">West Ohio · Maumee River District</p>
-          <ul class="plants">
-            <li><span class="num">6</span><span class="pname">Fresh Starts Breakfast Church @ Defiance St. Paul · Defiance</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">East Ohio · Northern Waters District</p>
-          <ul class="plants">
-            <li><span class="num">7</span><span class="pname">Ibada La Kiswahili · Akron</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">East Ohio · Central Valley District</p>
-          <ul class="plants">
-            <li><span class="num">8</span><span class="pname">Hanover House · Massillon First UMC</span></li>
-            <li><span class="num">9</span><span class="pname">Amherst Meadows · Massillon First UMC</span></li>
-          </ul>
+        <p class="year">2025</p>
+        <div class="grid">
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">1</span><p class="dname">West Ohio | Great Miami River District</p></div>
+            <ul class="plants">
+              <li><span class="pn">1.</span> Bethlehem Bhutanese UMC | Cincinnati</li>
+              <li><span class="pn">2.</span> New Covenant UMC | Cincinnati</li>
+              <li><span class="pn">3.</span> Resurrection Mason UMC | Cincinnati</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">2</span><p class="dname">West Ohio | Olentangy River District</p></div>
+            <ul class="plants">
+              <li><span class="pn">4.</span> Iglesia Hispana St Marks UMC | Columbus</li>
+              <li><span class="pn">5.</span> Messy Church @ Beacon of Hope | Columbus</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">3</span><p class="dname">West Ohio | Maumee River District</p></div>
+            <ul class="plants">
+              <li><span class="pn">6.</span> Fresh Starts Breakfast Church @ Defiance St. Paul | Defiance</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">4</span><p class="dname">East Ohio | Northern Waters District</p></div>
+            <ul class="plants">
+              <li><span class="pn">7.</span> Ibada La Kiswahili | Akron</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">5</span><p class="dname">East Ohio | Central Valley District</p></div>
+            <ul class="plants">
+              <li><span class="pn">8.</span> Hanover House | Massillon First UMC</li>
+              <li><span class="pn">9.</span> Amherst Meadows | Massillon First UMC</li>
+            </ul>
+          </div>
         </div>
 
         <p class="year">2026</p>
+        <div class="grid">
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">1</span><p class="dname">East Ohio | Northern Waters District</p></div>
+            <ul class="plants">
+              <li><span class="pn">10.</span> Hope Community Church | Elyria</li>
+              <li><span class="pn">11.</span> Sympatico | Strongsville UMC</li>
+              <li><span class="pn">12.</span> Beyond the Building | Northampton UMC | Cuyahoga Falls</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">2</span><p class="dname">East Ohio | West Plains District</p></div>
+            <ul class="plants">
+              <li><span class="pn">13.</span> The Oasis Community | Bucyrus UMC</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">3</span><p class="dname">West Ohio | Olentangy River District</p></div>
+            <ul class="plants">
+              <li><span class="pn">14.</span> New International Service | Ebenezer UMC | Columbus</li>
+              <li><span class="pn">15.</span> Korean Community UMC | Columbus</li>
+              <li><span class="pn">16.</span> Sacred Tables &amp; Wild Spaces @ Maple Grove UMC | Columbus</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">4</span><p class="dname">West Ohio | Western Lakes District</p></div>
+            <ul class="plants">
+              <li><span class="pn">17.</span> The Table | Urbana UMC</li>
+              <li><span class="pn">18.</span> Hope Collective - Sidney Campus</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">5</span><p class="dname">West Ohio | Hocking River District</p></div>
+            <ul class="plants">
+              <li><span class="pn">19.</span> Abilities FX @ The Plains</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">6</span><p class="dname">West Ohio | Great Miami River District</p></div>
+            <ul class="plants">
+              <li><span class="pn">20.</span> Living Faith UMC | Cincinnati</li>
+            </ul>
+          </div>
+        </div>
 
-        <div class="dist">
-          <p class="dname">East Ohio · Northern Waters District</p>
-          <ul class="plants">
-            <li><span class="num">10</span><span class="pname">Hope Community Church · Elyria</span></li>
-            <li><span class="num">11</span><span class="pname">Sympatico · Strongsville UMC</span></li>
-            <li><span class="num">12</span><span class="pname">Beyond the Building · Northampton UMC · Cuyahoga Falls</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">East Ohio · West Plains District</p>
-          <ul class="plants">
-            <li><span class="num">13</span><span class="pname">The Oasis Community · Bucyrus UMC</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">West Ohio · Olentangy River District</p>
-          <ul class="plants">
-            <li><span class="num">14</span><span class="pname">New International Service · Ebenezer UMC · Columbus</span></li>
-            <li><span class="num">15</span><span class="pname">Korean Community UMC · Columbus</span></li>
-            <li><span class="num">16</span><span class="pname">Sacred Tables &amp; Wild Spaces @ Maple Grove UMC · Columbus</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">West Ohio · Western Lakes District</p>
-          <ul class="plants">
-            <li><span class="num">17</span><span class="pname">The Table · Urbana UMC</span></li>
-            <li><span class="num">18</span><span class="pname">Hope Collective · Sidney Campus</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">West Ohio · Hocking River District</p>
-          <ul class="plants">
-            <li><span class="num">19</span><span class="pname">Abilities FX @ The Plains</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">West Ohio · Great Miami River District</p>
-          <ul class="plants">
-            <li><span class="num">20</span><span class="pname">Living Faith UMC · Cincinnati</span></li>
-          </ul>
-        </div>
-
-        <p class="year proj">2027 · Projected</p>
-
-        <div class="dist">
-          <p class="dname">East Ohio · South Forest District</p>
-          <ul class="plants">
-            <li><span class="num">21</span><span class="pname">South Zanesville / New Concord</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">East Ohio · West Plains District</p>
-          <ul class="plants">
-            <li><span class="num">22</span><span class="pname">Centerburg UMC</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">East Ohio · Northern Waters District</p>
-          <ul class="plants">
-            <li><span class="num">23</span><span class="pname">Messy Church @ Cory UMC</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">West Ohio · Olentangy River District</p>
-          <ul class="plants">
-            <li><span class="num">24</span><span class="pname">Refuge UMC · Scioto Ridge · Hilliard</span></li>
-            <li><span class="num">25</span><span class="pname">Notas de Gracia · Grove City</span></li>
-            <li><span class="num">26</span><span class="pname">Hombres Con Propósito · Grove City</span></li>
-            <li><span class="num">27</span><span class="pname">Mesa de Vida · Grove City</span></li>
-            <li><span class="num">28</span><span class="pname">Barn Church · Grove City</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">West Ohio · Hocking River District</p>
-          <ul class="plants">
-            <li><span class="num">29</span><span class="pname">Putnam Place · Zanesville</span></li>
-          </ul>
-        </div>
-        <div class="dist">
-          <p class="dname">West Ohio · Maumee River District</p>
-          <ul class="plants">
-            <li><span class="num">30</span><span class="pname">Prayer Porch Expression · Edgerton UMC</span></li>
-            <li><span class="num">31</span><span class="pname">Shifty Worship · Edgerton UMC</span></li>
-          </ul>
+        <p class="year proj">2027 — Projected</p>
+        <div class="grid">
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">1</span><p class="dname">East Ohio | South Forest District</p></div>
+            <ul class="plants">
+              <li><span class="pn">21.</span> South Zanesville / New Concord</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">2</span><p class="dname">East Ohio | West Plains District</p></div>
+            <ul class="plants">
+              <li><span class="pn">22.</span> Centerburg UMC</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">3</span><p class="dname">East Ohio | Northern Waters District</p></div>
+            <ul class="plants">
+              <li><span class="pn">23.</span> Messy Church @ Cory UMC</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">4</span><p class="dname">West Ohio | Olentangy River District</p></div>
+            <ul class="plants">
+              <li><span class="pn">24.</span> Refuge UMC | Scioto Ridge | Hilliard</li>
+              <li><span class="pn">25.</span> Notas de Gracia | Grove City</li>
+              <li><span class="pn">26.</span> Hombres Con Propósito | Grove City</li>
+              <li><span class="pn">27.</span> Mesa de Vida | Grove City</li>
+              <li><span class="pn">28.</span> Barn Church | Grove City</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">5</span><p class="dname">West Ohio | Hocking River District</p></div>
+            <ul class="plants">
+              <li><span class="pn">29.</span> Putnam Place | Zanesville</li>
+            </ul>
+          </div>
+          <div class="dist">
+            <div class="dhead"><span class="dbadge">6</span><p class="dname">West Ohio | Maumee River District</p></div>
+            <ul class="plants">
+              <li><span class="pn">30.</span> Prayer Porch Expression | Edgerton UMC</li>
+              <li><span class="pn">31.</span> Shifty Worship | Edgerton UMC</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
