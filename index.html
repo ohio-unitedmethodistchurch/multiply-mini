@@ -195,6 +195,12 @@
   .dst-dist ul { margin: 0; padding-left: 22px; }
   .dst-dist li { margin: 6px 0; }
   .dst-dist li::marker { color: var(--brand); }
+  .zoom-hint { color: var(--muted); font-size: .9rem; text-align: center; margin: -14px 0 22px; }
+
+  /* image lightbox (tap to zoom) */
+  .lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.92); display: grid; place-items: center; overscroll-behavior: contain; }
+  .lightbox img { max-width: 100%; max-height: 100%; touch-action: none; transform-origin: center center; user-select: none; -webkit-user-drag: none; will-change: transform; }
+  .lb-close { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 10px); right: 14px; z-index: 101; width: 46px; height: 46px; border-radius: 50%; border: none; background: rgba(255,255,255,.18); color: #fff; font-size: 2rem; line-height: 1; display: grid; place-items: center; cursor: pointer; }
 
   footer { text-align: center; color: var(--muted); font-size: .84rem; padding-block: 24px; border-top: 1px solid var(--line); margin-top: 8px; }
   a { color: var(--brand); }
@@ -610,7 +616,8 @@
     <div class="block">
       <p class="kicker">Find your district</p>
       <h2 class="title display">DST Map</h2>
-      <img class="dst-map-img" src="assets/dst-map.jpg" alt="Multiply Ohio district map — East &amp; West Ohio Conferences">
+      <img class="dst-map-img" src="assets/dst-map.jpg" alt="Multiply Ohio district map — East &amp; West Ohio Conferences" data-zoom>
+      <p class="zoom-hint">Tap the map to zoom in.</p>
       <div class="dst-grid">
         <div class="dst-dist"><h4>Maumee River DST</h4><ul>
           <li>Toledo Campus Ministries (Lucas County)</li>
@@ -688,6 +695,11 @@
 
 </main>
 
+<div id="lightbox" class="lightbox" hidden>
+  <button class="lb-close" aria-label="Close">×</button>
+  <img id="lightbox-img" alt="">
+</div>
+
 <footer>
   <div class="wrap">2026 Multiply Ohio · West Ohio Conference of The United Methodist Church</div>
 </footer>
@@ -732,5 +744,41 @@
     }
     tick();
     var t = setInterval(tick, 1000);
+  })();
+
+  // Tap-to-zoom lightbox for [data-zoom] images: pinch to zoom, drag to pan, double-tap to toggle.
+  (function () {
+    var lb = document.getElementById("lightbox");
+    var img = document.getElementById("lightbox-img");
+    if (!lb || !img) return;
+    var scale = 1, tx = 0, ty = 0, startDist = 0, startScale = 1, lastX = 0, lastY = 0, panning = false, startTX = 0, startTY = 0;
+    function apply() { img.style.transform = "translate(" + tx + "px," + ty + "px) scale(" + scale + ")"; }
+    function open(src, alt) { img.src = src; img.alt = alt || ""; scale = 1; tx = 0; ty = 0; apply(); lb.hidden = false; document.body.style.overflow = "hidden"; }
+    function close() { lb.hidden = true; document.body.style.overflow = ""; img.src = ""; }
+    var zoomables = document.querySelectorAll("[data-zoom]");
+    for (var i = 0; i < zoomables.length; i++) {
+      (function (el) {
+        el.style.cursor = "zoom-in";
+        el.addEventListener("click", function () { open(el.getAttribute("src"), el.getAttribute("alt")); });
+      })(zoomables[i]);
+    }
+    lb.querySelector(".lb-close").addEventListener("click", close);
+    lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+    function dist(t) { return Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY); }
+    img.addEventListener("touchstart", function (e) {
+      if (e.touches.length === 2) { startDist = dist(e.touches); startScale = scale; }
+      else if (e.touches.length === 1) { panning = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; startTX = tx; startTY = ty; }
+    }, { passive: false });
+    img.addEventListener("touchmove", function (e) {
+      if (e.touches.length === 2) { e.preventDefault(); scale = Math.max(1, Math.min(5, startScale * dist(e.touches) / startDist)); apply(); }
+      else if (e.touches.length === 1 && panning && scale > 1) { e.preventDefault(); tx = startTX + (e.touches[0].clientX - lastX); ty = startTY + (e.touches[0].clientY - lastY); apply(); }
+    }, { passive: false });
+    img.addEventListener("touchend", function (e) { if (e.touches.length === 0) panning = false; });
+    var lastTap = 0;
+    img.addEventListener("click", function () {
+      var now = Date.now();
+      if (now - lastTap < 300) { scale = scale > 1 ? 1 : 2.5; tx = 0; ty = 0; apply(); }
+      lastTap = now;
+    });
   })();
 </script>
