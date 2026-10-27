@@ -155,10 +155,11 @@
   .speaker p.bio:last-child { margin-bottom: 0; }
 
   /* bishop letter */
-  .letter .byline { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
-  .letter .byline img { width: 128px; height: 160px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); flex-shrink: 0; }
+  .letter .bishop-photo { width: 100%; height: 340px; object-fit: cover; object-position: center top; border-radius: 12px; display: block; border: 1px solid var(--line); margin: 0 0 14px; }
+  .letter .byline { margin-bottom: 20px; }
   .letter .byline h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.4rem; font-weight: 700; margin: 0 0 4px; line-height: 1.08; }
-  .letter .byline .sub { margin: 0; color: var(--brand); font-weight: 500; }
+  .letter .byline .title { font-weight: 600; margin: 0 0 1px; }
+  .letter .byline .conf { margin: 0; color: var(--brand); font-weight: 500; }
   .letter .greeting { font-weight: 700; margin: 0 0 2px; }
   .letter .ref { color: var(--muted); margin: 0 0 16px; }
   .letter p { margin: 0 0 14px; }
@@ -423,12 +424,11 @@
       <h2 class="title display">A Message from the Bishop</h2>
 
       <div class="letter">
+        <img class="bishop-photo" src="assets/jung.jpg" alt="Bishop Hee-Soo Jung">
         <div class="byline">
-          <img src="assets/jung.jpg" alt="Bishop Hee-Soo Jung">
-          <div>
-            <h4>Bishop Hee-Soo Jung</h4>
-            <p class="sub">Resident Bishop · Ohio Episcopal Area</p>
-          </div>
+          <h4>Bishop Hee-Soo Jung</h4>
+          <p class="title">Resident Bishop</p>
+          <p class="conf">Ohio Episcopal Area</p>
         </div>
 
         <p class="greeting">Greetings for the Large Church Leaders Gathering</p>
