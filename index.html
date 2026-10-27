@@ -155,7 +155,7 @@
   .speaker p.bio:last-child { margin-bottom: 0; }
 
   /* bishop letter */
-  .letter .bishop-photo { width: 100%; height: 340px; object-fit: cover; object-position: center top; border-radius: 12px; display: block; border: 1px solid var(--line); margin: 0 0 14px; }
+  .letter .bishop-photo { width: 100%; max-width: 300px; height: auto; border-radius: 12px; display: block; border: 1px solid var(--line); margin: 0 auto 14px; }
   .letter .byline { margin-bottom: 20px; }
   .letter .byline h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.4rem; font-weight: 700; margin: 0 0 4px; line-height: 1.08; }
   .letter .byline .title { font-weight: 600; margin: 0 0 1px; }
@@ -186,6 +186,15 @@
   .r100 ul.plants { list-style: none; margin: 8px 0 0; padding: 0; }
   .r100 ul.plants li { display: flex; gap: 7px; align-items: baseline; margin: 6px 0; }
   .r100 ul.plants .pn { color: var(--brand); font-weight: 600; flex-shrink: 0; }
+
+  /* dst map */
+  .dst-map-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); display: block; margin: 4px 0 22px; }
+  .dst-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+  @media (min-width: 640px) { .dst-grid { grid-template-columns: 1fr 1fr; gap: 24px 28px; } }
+  .dst-dist h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.15rem; color: var(--fg); margin: 0 0 8px; padding-bottom: 5px; border-bottom: 2px solid var(--accent-soft); }
+  .dst-dist ul { margin: 0; padding-left: 22px; }
+  .dst-dist li { margin: 6px 0; }
+  .dst-dist li::marker { color: var(--brand); }
 
   footer { text-align: center; color: var(--muted); font-size: .84rem; padding-block: 24px; border-top: 1px solid var(--line); margin-top: 8px; }
   a { color: var(--brand); }
@@ -601,8 +610,59 @@
     <div class="block">
       <p class="kicker">Find your district</p>
       <h2 class="title display">DST Map</h2>
-      <p><span class="soon">Coming</span></p>
-      <p class="note">The district map will appear here.</p>
+      <img class="dst-map-img" src="assets/dst-map.jpg" alt="Multiply Ohio district map — East &amp; West Ohio Conferences">
+      <div class="dst-grid">
+        <div class="dst-dist"><h4>Maumee River DST</h4><ul>
+          <li>Toledo Campus Ministries (Lucas County)</li>
+          <li>BGSU Campus Ministries (Wood County)</li>
+          <li>MRD Digital Church</li>
+        </ul></div>
+        <div class="dst-dist"><h4>West Plains DST</h4><ul>
+          <li>Bucyrus (Crawford County)</li>
+          <li>Vermillion Grace (Erie County)</li>
+          <li>Morrow County</li>
+        </ul></div>
+        <div class="dst-dist"><h4>Northern Waters DST</h4><ul>
+          <li>Elyria First UMC (Lorain County)</li>
+          <li>East Cleveland (Cuyahoga County)</li>
+          <li>Akron First UMC (Summit County)</li>
+        </ul></div>
+        <div class="dst-dist"><h4>Central Valley DST</h4><ul>
+          <li>NW Side of Wooster (Wayne County)</li>
+          <li>Crystal Park (Stark County)</li>
+          <li>Perry Heights Trinity (Stark County)</li>
+        </ul></div>
+        <div class="dst-dist"><h4>Western Lakes DST</h4><ul>
+          <li>Lima Area (Allen County)</li>
+          <li>Troy area (Miami County)</li>
+          <li>Putnam County</li>
+        </ul></div>
+        <div class="dst-dist"><h4>Olentangy River DST</h4><ul>
+          <li>42 Corridor from Jerome to Beloved to London (Union County)</li>
+          <li>Columbia Heights (Franklin County)</li>
+          <li>Lewis Center (Franklin County)</li>
+        </ul></div>
+        <div class="dst-dist"><h4>South Forest DST</h4><ul>
+          <li>New Philadelphia First and Dover (Tuscarawas County)</li>
+          <li>Steubenville (Jefferson County)</li>
+          <li>Smith Chapel and Oakland (Morgan County)</li>
+        </ul></div>
+        <div class="dst-dist"><h4>Great Miami River DST</h4><ul>
+          <li>First Fil-Am Church (Montgomery County)</li>
+          <li>Little Miami – Maineville (Warren County)</li>
+          <li>Harrison (Hamilton County)</li>
+        </ul></div>
+        <div class="dst-dist"><h4>Scioto River DST</h4><ul>
+          <li>South Bloomfield (Pickaway County)</li>
+          <li>Portsmouth (Scioto County)</li>
+          <li>Ironton (Lawrence County)</li>
+        </ul></div>
+        <div class="dst-dist"><h4>Hocking River DST</h4><ul>
+          <li>Gallipolis (Gallia County)</li>
+          <li>Logan (Hocking County)</li>
+          <li>South Zanesville (Muskingum County)</li>
+        </ul></div>
+      </div>
     </div>
   </section>
 
