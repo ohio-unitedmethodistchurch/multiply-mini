@@ -153,6 +153,19 @@
   .speaker p.bio { margin: 0 0 10px; }
   .speaker p.bio:last-child { margin-bottom: 0; }
 
+  /* bishop letter */
+  .letter .byline { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+  .letter .byline img { width: 128px; height: 160px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); flex-shrink: 0; }
+  .letter .byline h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.4rem; font-weight: 700; margin: 0 0 4px; line-height: 1.08; }
+  .letter .byline .sub { margin: 0; color: var(--brand); font-weight: 500; }
+  .letter .greeting { font-weight: 700; margin: 0 0 2px; }
+  .letter .ref { color: var(--muted); margin: 0 0 16px; }
+  .letter p { margin: 0 0 14px; }
+  .letter .emphasis { font-weight: 700; }
+  .letter .sign { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 16px; }
+  .letter .sign .name { font-family: "Oswald", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.2rem; color: var(--brand); margin: 6px 0 2px; }
+  .letter .sign .title { color: var(--muted); margin: 0; }
+
   footer { text-align: center; color: var(--muted); font-size: .84rem; padding-block: 24px; border-top: 1px solid var(--line); margin-top: 8px; }
   a { color: var(--brand); }
 </style>
@@ -382,9 +395,41 @@
     <a class="back" href="#home">← All areas</a>
     <div class="block">
       <p class="kicker">A word of welcome</p>
-      <h2 class="title display">Letter from Bishop Jung</h2>
-      <p><span class="soon">Coming</span></p>
-      <p class="note">Bishop Jung's letter will appear here.</p>
+      <h2 class="title display">A Message from the Bishop</h2>
+
+      <div class="letter">
+        <div class="byline">
+          <img src="assets/jung.jpg" alt="Bishop Hee-Soo Jung">
+          <div>
+            <h4>Bishop Hee-Soo Jung</h4>
+            <p class="sub">Resident Bishop · Ohio Episcopal Area</p>
+          </div>
+        </div>
+
+        <p class="greeting">Greetings for the Large Church Leaders Gathering</p>
+        <p class="ref">Isaiah 43:18–19</p>
+
+        <p>Dear Colleagues in Christ,</p>
+        <p>It is a profound joy to gather with you — leaders of our large congregations and vital ethnic faith communities across Ohio. Each of you plays an indispensable role in the mission, vitality, and stewardship of our Annual Conference. I begin by expressing my deep gratitude for your faithful service, for the weight of responsibility you carry, and for the integrated and transformative ministries you sustain in Christ's name.</p>
+
+        <blockquote class="scripture">"See, I am doing a new thing! Now it springs up; do you not perceive it? I am making a way in the wilderness and streams in the wasteland."<cite>Isaiah 43:19</cite></blockquote>
+
+        <p>This gathering is a special invitation to join colleagues in this new thing that God is doing! This is our shared calling — to grow together into the fullness of Christ, each part contributing to the wholeness and vitality of the body.</p>
+
+        <p class="emphasis">We are not asking every church to plant a new congregation. We're inviting every church to become part of a multiplying movement by beginning to see Ohio's changing mission field in the foreground and the local church in the background.</p>
+
+        <p>I deeply believe that the shared commitment and imagination of our large church and ethnic congregation leaders will be the cornerstone of this new chapter.</p>
+
+        <p>We all recognize that in today's social and political context, the Church must be reborn. Learning from emerging generations, especially Gen Z, we are preparing new soil for ministry. Too often, our energy has been consumed by division and discontent. Now the Holy Spirit calls us again — to a Pentecostal vision of diversity, regeneration, and a renewed faith in God's kingdom.</p>
+
+        <p>THANK YOU for being part of this sacred conversation. May today's dialogue become a catalyst of strength and creative momentum for the Multiplying Mission before us. Together, let us multiply in ways that God desires for Ohio and for the world.</p>
+
+        <div class="sign">
+          <p>With gratitude and hope in Christ,</p>
+          <p class="name">Hee-Soo Jung</p>
+          <p class="title">Resident Bishop, Ohio Episcopal Area<br>The United Methodist Church</p>
+        </div>
+      </div>
     </div>
   </section>
 
