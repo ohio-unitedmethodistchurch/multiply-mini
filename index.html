@@ -245,7 +245,8 @@
   /* back to top */
   .to-top { position: fixed; z-index: 40; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(64px + env(safe-area-inset-bottom, 0px)); width: 48px; height: 48px; border-radius: 50%; border: none; background: var(--brand); color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.25); cursor: pointer; display: grid; place-items: center; touch-action: manipulation; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s, transform .2s; }
   .to-top.show { opacity: .95; visibility: visible; transform: translateY(0); }
-  .to-top:active { transform: translateY(1px); }
+  .to-top:focus { outline: none; }
+  .to-top:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
   .to-top svg { width: 24px; height: 24px; }
 
   footer { text-align: center; color: var(--muted); font-size: .84rem; padding-block: 24px; border-top: 1px solid var(--line); margin-top: 8px; }
@@ -911,12 +912,15 @@
     if (!btn) return;
     function upd() { if (window.scrollY > 300) btn.classList.add("show"); else btn.classList.remove("show"); }
     window.addEventListener("scroll", upd, { passive: true });
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
+    function goTop(e) {
+      if (e) e.preventDefault();
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
-    });
+      btn.blur();
+    }
+    btn.addEventListener("touchend", goTop, { passive: false });
+    btn.addEventListener("click", goTop);
     upd();
   })();
 </script>
