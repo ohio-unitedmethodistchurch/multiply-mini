@@ -222,6 +222,26 @@
   .gh-sessions b { color: var(--brand); font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .02em; }
   .gh-email { color: var(--muted); }
 
+  /* partners */
+  .partners-banner { position: relative; min-height: 200px; display: flex; align-items: center; background: #cfcac6 center / cover no-repeat; background-image: url("assets/p-banner.jpg");
+    margin-top: 4px; margin-bottom: 20px;
+    margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px))); }
+  .partners-banner .label { background: rgba(45,45,45,.55); color: #fff; font-size: clamp(1.5rem, 6vw, 2.1rem); font-weight: 600; padding: 12px 22px; margin-left: max(16px, env(safe-area-inset-left, 0px)); }
+  .pcards { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 4px; }
+  @media (min-width: 720px) { .pcards { grid-template-columns: repeat(3, 1fr); } }
+  .pcard { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; background: #fff; }
+  .pcard-top { position: relative; background: #fff; padding: 50px 20px 26px; display: grid; place-items: center; min-height: 172px; }
+  .pbadge { position: absolute; top: 0; left: 0; background: var(--brand); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 7px 12px; }
+  .pcard-top img { max-width: 82%; max-height: 118px; width: auto; height: auto; }
+  .pcard-bot { background: var(--brand); color: #fff; padding: 22px 20px; margin-top: auto; }
+  .pcard-bot h4 { font-size: 1.5rem; font-weight: 700; margin: 0 0 4px; color: #fff; line-height: 1.12; }
+  .pcard-bot.norole h4 { margin-bottom: 16px; }
+  .pcard-bot .prole { color: rgba(255,255,255,.82); margin: 0 0 16px; }
+  .pbtn { display: inline-block; background: #fff; color: var(--brand); text-decoration: none; font-weight: 600; padding: 9px 20px; border-radius: 6px; font-size: .98rem; }
+  .pbtn:active { transform: translateY(1px); }
+  .pbtn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
   footer { text-align: center; color: var(--muted); font-size: .84rem; padding-block: 24px; border-top: 1px solid var(--line); margin-top: 8px; }
   a { color: var(--brand); }
 </style>
@@ -445,10 +465,62 @@
   <section class="screen" id="partners">
     <a class="back" href="#home">← All areas</a>
     <div class="block">
-      <p class="kicker">Alongside us</p>
-      <h2 class="title display">Partners</h2>
-      <p><span class="soon">Coming</span></p>
-      <p class="note">Multiply Ohio partners and sponsors will be listed here.</p>
+      <div class="partners-banner"><span class="label">Meet Our Partners</span></div>
+      <p>We are incredibly blessed to have partners to support the Ohio Multiplication movement!</p>
+
+      <div class="pcards">
+        <div class="pcard">
+          <div class="pcard-top"><span class="pbadge">Premier Multiply Partner</span><img src="assets/p-cfcu.png" alt="Christian Family Credit Union"></div>
+          <div class="pcard-bot">
+            <h4>Sam Rodriguez</h4>
+            <p class="prole">Relations &amp; Business Developer</p>
+            <a class="pbtn" href="https://www.christianfamilycu.com/" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-top"><span class="pbadge">Catalyst Partner</span><img src="assets/p-opr.png" alt="Ohio Public Risk Insurance Agency"></div>
+          <div class="pcard-bot">
+            <h4>Dave Scott</h4>
+            <p class="prole">Licensed Agent</p>
+            <a class="pbtn" href="https://ohiopublicriskins.com/" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-top"><span class="pbadge">Foundation &amp; Meal Partnership</span><img src="assets/p-umfwo.png" alt="United Methodist Foundation of West Ohio"></div>
+          <div class="pcard-bot">
+            <h4>Maddy DeWitt</h4>
+            <p class="prole">Program Manager</p>
+            <a class="pbtn" href="https://umfwestohio.org/" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-top"><span class="pbadge">Foundation &amp; Meal Partnership</span><img src="assets/p-mfo.png" alt="Methodist Foundation of Ohio"></div>
+          <div class="pcard-bot">
+            <h4>Brian Sheetz</h4>
+            <p class="prole">Director</p>
+            <a class="pbtn" href="https://methodistinvesting.org/" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-top"><span class="pbadge">Ministry Partner</span><img src="assets/p-korean.png" alt="Korean Ministry Plan"></div>
+          <div class="pcard-bot norole">
+            <h4>Korean Ministry Plan</h4>
+            <a class="pbtn" href="https://umcmission.org/wp-content/uploads/2024/11/4.-KOREAN-MINISTRY-PLAN-REPORT-TO-GC24.pdf" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <div class="pcard">
+          <div class="pcard-top"><span class="pbadge">Seminary Partner</span><img src="assets/p-mtso.png" alt="Methodist Theological School in Ohio (MTSO)"></div>
+          <div class="pcard-bot norole">
+            <h4>Marcus Atha</h4>
+            <a class="pbtn" href="https://umcmission.org/wp-content/uploads/2024/11/4.-KOREAN-MINISTRY-PLAN-REPORT-TO-GC24.pdf" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
