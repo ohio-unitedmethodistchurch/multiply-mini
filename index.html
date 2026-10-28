@@ -911,7 +911,12 @@
     if (!btn) return;
     function upd() { if (window.scrollY > 300) btn.classList.add("show"); else btn.classList.remove("show"); }
     window.addEventListener("scroll", upd, { passive: true });
-    btn.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
     upd();
   })();
 </script>
