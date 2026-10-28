@@ -242,6 +242,12 @@
   .pbtn:active { transform: translateY(1px); }
   .pbtn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
+  /* back to top */
+  .to-top { position: fixed; z-index: 40; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 48px; height: 48px; border-radius: 50%; border: none; background: var(--brand); color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.25); cursor: pointer; display: grid; place-items: center; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s, transform .2s; }
+  .to-top.show { opacity: .95; visibility: visible; transform: translateY(0); }
+  .to-top:active { transform: translateY(1px); }
+  .to-top svg { width: 24px; height: 24px; }
+
   footer { text-align: center; color: var(--muted); font-size: .84rem; padding-block: 24px; border-top: 1px solid var(--line); margin-top: 8px; }
   a { color: var(--brand); }
 </style>
@@ -810,6 +816,8 @@
 
 </main>
 
+<button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 15 12 9 18 15"></polyline></svg></button>
+
 <div id="lightbox" class="lightbox" hidden>
   <button class="lb-close" aria-label="Close">×</button>
   <img id="lightbox-img" alt="">
@@ -895,5 +903,15 @@
       if (now - lastTap < 300) { scale = scale > 1 ? 1 : 2.5; tx = 0; ty = 0; apply(); }
       lastTap = now;
     });
+  })();
+
+  // Back-to-top button: appears after scrolling down, smooth-scrolls to top.
+  (function () {
+    var btn = document.getElementById("toTop");
+    if (!btn) return;
+    function upd() { if (window.scrollY > 300) btn.classList.add("show"); else btn.classList.remove("show"); }
+    window.addEventListener("scroll", upd, { passive: true });
+    btn.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    upd();
   })();
 </script>
